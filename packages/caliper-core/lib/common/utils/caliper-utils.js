@@ -15,7 +15,7 @@
 'use strict';
 
 const loggingUtil = require('./logging-util.js');
-const Config = require('../config/config-util');
+const Config = require('../config/config-util.js');
 
 const {exec, spawn} = require('child_process');
 const fs = require('fs');

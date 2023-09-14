@@ -134,7 +134,7 @@ class Report {
      * @return {Map} Map of items to build results for, with default null entries
      */
     getResultColumnMap() {
-        const columns = ['Name', 'Succ', 'Fail', 'Send Rate (TPS)', 'Max Latency (s)', 'Min Latency (s)', 'Avg Latency (s)', 'Throughput (TPS)'];
+        const columns = ['Name', 'Succ', 'Fail', 'Send Rate (TPS)', 'Max Latency (s)', 'Min Latency (s)', 'Avg Latency (s)', 'Throughput (TPS)', 'Successful Throughput (TPS)'];
         const resultMap = new Map();
 
         for (const item of columns) {
@@ -167,6 +167,10 @@ class Report {
         // Observed TPS
         const tps = ((results.getTotalSuccessfulTx() + results.getTotalFailedTx()) / (CaliperUtils.millisToSeconds(results.getLastFinishTime() - results.getFirstCreateTime()))).toFixed(1);
         resultMap.set('Throughput (TPS)', tps);
+
+        // Successful Throughput(TPS) 
+        const rtps = ((results.getTotalSuccessfulTx()) / (CaliperUtils.millisToSeconds(results.getLastFinishTime() - results.getFirstCreateTime()))).toFixed(1);
+        resultMap.set('Successful Throughput (TPS)', rtps);
 
         return resultMap;
     }
