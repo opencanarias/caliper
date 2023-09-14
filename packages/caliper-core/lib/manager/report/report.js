@@ -168,7 +168,7 @@ class Report {
         const tps = ((results.getTotalSuccessfulTx() + results.getTotalFailedTx()) / (CaliperUtils.millisToSeconds(results.getLastFinishTime() - results.getFirstCreateTime()))).toFixed(1);
         resultMap.set('Throughput (TPS)', tps);
 
-        // Successful Throughput(TPS) 
+        // Successful Throughput(TPS)
         const rtps = ((results.getTotalSuccessfulTx()) / (CaliperUtils.millisToSeconds(results.getLastFinishTime() - results.getFirstCreateTime()))).toFixed(1);
         resultMap.set('Successful Throughput (TPS)', rtps);
 
